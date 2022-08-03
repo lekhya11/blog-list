@@ -1,18 +1,17 @@
+import BlogItem from '../BlogItem'
+
 import './index.css'
 
-const BlogItem = props => {
-  const {blogDetails} = props
-  const {title, description, publishedDate} = blogDetails
+const BlogList = props => {
+  const {blogsList} = props
 
   return (
-    <li className="blog-item">
-      <div className="blog-container">
-        <h1 className="blog-title">{title}</h1>
-        <p className="blog-date">{publishedDate}</p>
-      </div>
-      <p className="blog-description">{description}</p>
-    </li>
+    <ul className="blog-list">
+      {blogsList.map(eachBlog => (
+        <BlogItem key={eachBlog.id} blogDetails={eachBlog} />
+      ))}
+    </ul>
   )
 }
 
-export default BlogItem
+export default BlogList
